@@ -13,13 +13,16 @@ def add_user():
     # Add user to the list
     new_user = input("Input User: ")
     users.append(new_user)
-	
+
 def delete_user():
-    # Delete user from the list 
-    list_users()
-    del_user = input("Enter user you want to delete: ")
-    users.remove(del_user)
-    print("\nSuccess!\n")
+    try:
+        # Delete user from the list 
+        list_users()
+        del_user = input("Enter user you want to delete: ")
+        users.remove(del_user)
+        print("\nSuccess!\n")
+    except ValueError:
+        print("\nError: User does not exist!\n")
 
 def del_all():
     confirm = input("Are you sure you want to clear all? (Y/n): ")
