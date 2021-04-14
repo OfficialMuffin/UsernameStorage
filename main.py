@@ -1,5 +1,7 @@
 # User Storage Python Program by Leon Whelan
 
+import time
+
 users = ['Alice', 'Bob']
 
 def list_users():
@@ -24,6 +26,10 @@ def delete_user():
     except ValueError:
         print("\nError: User does not exist!\n")
 
+def sort_users():
+    # Sort list of users in alphabetical order
+    users.sort()
+
 def del_all():
     confirm = input("Are you sure you want to clear all? (Y/n): ")
     if confirm == 'Y':
@@ -38,7 +44,8 @@ def main_menu():
     print("1. List Users")
     print("2. Add User")
     print("3. Delete User")
-    print("4. ***DELETE ALL***")
+    print("4. Sort All")
+    print("5. ***DELETE ALL***")
     menu_select = input()
 
     if menu_select == '1':
@@ -48,6 +55,8 @@ def main_menu():
     elif menu_select == '3':
         delete_user()
     elif menu_select == '4':
+        sort_users()
+    elif menu_select == '5':
         del_all()
     else:
         print("Invalid Request!")
@@ -55,4 +64,5 @@ def main_menu():
 if __name__ == "__main__":
     while True:
         main_menu()
+        time.sleep(1)
        
