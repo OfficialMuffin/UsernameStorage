@@ -39,6 +39,13 @@ def delete_user():
 def sort_users():
     # Sort list of users in alphabetical order
     users.sort()
+    
+def find_user():
+    search = str(input("Enter the user you would like to search for: "))
+    if search in users:
+        print("User exists!")
+    else:
+        print("User does not exist!")
 
 def del_all():
     if len(users) == 0:
@@ -53,12 +60,30 @@ def del_all():
             
 def save_list():
     filename = str(input("Please enter a filename to save: "))
-    filename.join(".txt")
-    file = open(filename, 'a')
+    filename_with_ext = filename + ".txt"
+    file = open(filename_with_ext, 'a')
     file.write(str(users))
     file.close()
     print("File Saved Successfully!")    
+    
+def read_list():
+    filename = str(input("Enter the filename of file you wish to open: ")) + ".txt"
+    try:
+        file = open(filename, 'r')
+        if FileExistsError:
+            exists = str(input("File exists. Do you want to append to current list? (Y/n): "))
+            if exists == 'Y':
+                # Append to current list
+                for users in file:
+                    print(users) 
 
+            elif exists == 'n': 
+                # Use the new list in the file
+                pass                
+        
+    except FileNotFoundError:
+        print("File not found. Please try again.")
+    
 def main_menu():
     # Main menu
     print("Please select from the following items: ")
@@ -66,8 +91,10 @@ def main_menu():
     print("2. Add User")
     print("3. Delete User")
     print("4. Sort All")
-    print("5. Save List to File")
-    print("6. ***DELETE ALL***")
+    print("5. Find User")
+    print("6. Save List to File")
+    print("7. Read List from File")
+    print("8. ***DELETE ALL***")
     menu_select = input()
 
     if menu_select == '1':
@@ -79,8 +106,12 @@ def main_menu():
     elif menu_select == '4':
         sort_users()
     elif menu_select == '5':
-        save_list()
+        find_user()
     elif menu_select == '6':
+        save_list()
+    elif menu_select == '7':
+        read_list()
+    elif menu_select == '8':
         del_all()
     else:
         print("Invalid Request!")
