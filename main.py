@@ -36,6 +36,7 @@ def add_user():
     		print("Error: User already exists")
     		return -1
     users.append(new_user)
+    print(f"User {new_user} added successfully")
 
 def delete_user():
     try:
@@ -50,6 +51,7 @@ def delete_user():
 def sort_users():
     # Sort list of users in alphabetical order
     users.sort()
+    print("User list has been sorted successfully!")
     
 def find_user():
     search = str(input("Enter the user you would like to search for: "))
@@ -122,15 +124,17 @@ def main_menu():
     elif menu_select == '3':
         delete_user()
     elif menu_select == '4':
-        sort_users()
+        change_user()
     elif menu_select == '5':
-        find_user()
+        sort_users()
     elif menu_select == '6':
-        save_list()
+        find_user()
     elif menu_select == '7':
-        read_list()
-    elif menu_select == '8':
         del_all()
+    elif menu_select == '8':
+        save_list()
+    elif menu_select == '9':
+        read_list()
     else:
         print("Invalid Request!")
 
