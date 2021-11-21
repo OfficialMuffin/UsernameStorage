@@ -62,9 +62,10 @@ def save_list():
     filename = str(input("Please enter a filename to save: "))
     filename_with_ext = filename + ".txt"
     file = open(filename_with_ext, 'a')
-    file.write(str(users))
+    for u in users:
+        file.write(str(u + '\n'))
     file.close()
-    print("File Saved Successfully!")    
+    print("File Saved Successfully!")
     
 def read_list():
     filename = str(input("Enter the filename of file you wish to open: ")) + ".txt"
