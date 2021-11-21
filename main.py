@@ -3,6 +3,7 @@
     by OfficialMuffin
 """
 from time import sleep
+from os import system, name
 import re
 
 users = []
@@ -153,4 +154,5 @@ def main_menu():
 if __name__ == "__main__":
     while True:
         main_menu()
-        sleep(1)
+        sleep(3)
+        system('cls' if name == 'nt' else 'clear')
