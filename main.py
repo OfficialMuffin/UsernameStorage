@@ -3,6 +3,7 @@
     by OfficialMuffin
 """
 from time import sleep
+import re
 
 users = []
 menu = [
@@ -47,6 +48,10 @@ def delete_user():
         print("\nSuccess!\n")
     except ValueError:
         print("\nError: User does not exist!\n")
+        
+def change_user():
+    # Change username if user made typo error
+    pass
 
 def sort_users():
     # Sort list of users in alphabetical order
@@ -54,11 +59,18 @@ def sort_users():
     print("User list has been sorted successfully!")
     
 def find_user():
-    search = str(input("Enter the user you would like to search for: "))
+    search = str(input("Enter a user you would like to search for: "))
     if search in users:
-        print("User exists!")
+        print(f"User: {search}, exists!")
     else:
-        print("User does not exist!")
+        try:
+            print("User does not exist!")
+            search_regex = str(input("Use regex for the user you would like to search for: "))
+            regex = re.compile(f"{search_regex}")
+            found_user = list(filter(regex.match, users))
+            print(found_user)
+        except Exception:
+            print("Error: Regex was unable to search.")
 
 def del_all():
     if len(users) == 0:
