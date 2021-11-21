@@ -60,27 +60,39 @@ def del_all():
             
 def save_list():
     filename = str(input("Please enter a filename to save: "))
-    filename_with_ext = filename + ".txt"
-    file = open(filename_with_ext, 'a')
-    for u in users:
-        file.write(str(u + '\n'))
-    file.close()
-    print("File Saved Successfully!")
+    if filename == "":
+        print("You didnt enter anything, please try again.")
+    else: 
+        if len(users) == 0:
+            print("User list is empty. Unable to save an empty list")
+        else:
+            filename_with_ext = filename + ".txt"
+            file = open(filename_with_ext, 'a')
+            for u in users:
+                file.write(str(u + '\n'))
+            file.close()
+            print("File Saved Successfully!")
     
 def read_list():
     filename = str(input("Enter the filename of file you wish to open: ")) + ".txt"
     try:
-        file = open(filename, 'r')
-        if FileExistsError:
-            exists = str(input("File exists. Do you want to append to current list? (Y/n): "))
-            if exists == 'Y':
-                # Append to current list
-                for users in file:
-                    print(users) 
+        #file = open(filename, 'r')
+        with open(filename, 'r') as file:
+            if FileExistsError:
+                exists = str(input("File exists. Do you want to append to current list? (Y/n): "))
+                if exists == 'Y':
+                    # Append to current list
+                    """ for users in file:
+                        formatted = users.strip('\n')
+                        print(formatted)  """
+                    file_lines = file.readlines()
+                    users.append(file_lines)
+                    file.close()
 
-            elif exists == 'n': 
-                # Use the new list in the file
-                pass                
+                elif exists == 'n': 
+                    # Use the new list in the file
+                    file_lines = file.readlines()
+                    users.append(file_lines)             
         
     except FileNotFoundError:
         print("File not found. Please try again.")
