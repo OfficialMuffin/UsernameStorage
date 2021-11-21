@@ -5,6 +5,17 @@
 from time import sleep
 
 users = []
+menu = [
+    "List Users",
+    "Add User",
+    "Delete User",
+    "Change User",
+    "Sort Users",
+    "Find User",
+    "Delete List",
+    "Save List",
+    "Load List"
+]
 
 def list_users():
     # Print out users names and the number of users in the list
@@ -100,14 +111,8 @@ def read_list():
 def main_menu():
     # Main menu
     print("Please select from the following items: ")
-    print("1. List Users")
-    print("2. Add User")
-    print("3. Delete User")
-    print("4. Sort All")
-    print("5. Find User")
-    print("6. Save List to File")
-    print("7. Read List from File")
-    print("8. ***DELETE ALL***")
+    for menu_number, enumerated_list in enumerate(menu, start=1):
+        print(menu_number, enumerated_list)
     menu_select = input()
 
     if menu_select == '1':
