@@ -53,7 +53,16 @@ def delete_user():
 def change_user():
     """Enable user to change a username
     """
-    pass
+    change = str(input("Please enter a specific user to change (case-sensitive): "))
+    select = str(input(f"You are changing user '{change}', is this the correct user? (Y/n): "))
+    if select == "Y":
+        change_name = str(input("Now enter the new name you would like to replace '{change}' with: "))
+        # Search for user, if user exists, enable user to change name according to index.
+        # else, return to main menu
+    elif select == "n":
+        main_menu()
+    else:
+        print("Invalid Input! Please try again!")
 
 def sort_users():
     """Sort the user list in alphabetical order
