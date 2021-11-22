@@ -1,10 +1,10 @@
 """
-User Storage Python Program 
+User Storage Python Program
 by OfficialMuffin
 """
 from time import sleep
 from os import system, name
-import src.menu as menu
+from src import menu
 
 if __name__ == "__main__":
     while True:
