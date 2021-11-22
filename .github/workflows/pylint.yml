@@ -21,7 +21,3 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(find . -name "*.py" | xargs)
-    - name: linting
-      uses: alexanderdamiani/pylinter@v1.2.0
-    - name: wemake-python-styleguide
-      uses: wemake-services/wemake-python-styleguide@0.15.3
