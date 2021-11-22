@@ -4,7 +4,7 @@ by OfficialMuffin
 """
 from time import sleep
 from os import system, name
-import menu
+import src.menu as menu
 
 if __name__ == "__main__":
     while True:
