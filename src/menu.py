@@ -18,7 +18,7 @@ menu = [
 ]
 
 def list_users():
-    """Prints the number of users currently in the list of users
+    """Prints the number of users currently in the list of users. Does not return anything
     """
     if len(users) == 0:
         print("User list is empty. Please add a user from the menu.")
@@ -29,26 +29,32 @@ def list_users():
         print("Number of users: " + len_users + "\n")
 
 def add_user():
-    """Adds a user to the list of users
+    """Adds a user to the list of users. 
+    Returns true if user is added sucessfully. Returns false if user already exists
     """
     new_user = input("Input User: ")
     # Check if the user already exists
     for user in users:
         if new_user in user:
             print("Error: User already exists")
+            return False
     users.append(new_user)
     print(f"User {new_user} added successfully")
+    return True
 
 def delete_user():
     """Delete a user from the list of users
+    Returns true if user is found and deleted. Returns false if user does not exist
     """
     try:
         list_users()
         del_user = input("Enter user you want to delete: ")
         users.remove(del_user)
         print("\nSuccess!\n")
+        return True
     except ValueError:
         print("\nError: User does not exist!\n")
+        return False
 
 def change_user():
     """Enable user to change a username
@@ -63,12 +69,14 @@ def change_user():
         main_menu()
     else:
         print("Invalid Input! Please try again!")
+        return False
 
 def sort_users():
     """Sort the user list in alphabetical order
     """
     users.sort()
     print("User list has been sorted successfully!")
+    return users
 
 def find_user():
     """Search for a particular user. Regex can be used here without quotations
@@ -171,3 +179,4 @@ def main_menu():
         read_list()
     else:
         print("Invalid Request!")
+        return False
