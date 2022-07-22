@@ -1,34 +1,52 @@
-from src import menu
-import mock
 import builtins
+import mock
+from src import menu
 
 USER = 'test_user'
 
 def test_add_user():
+    """
+    Adding a user to the list
+    """
     with mock.patch.object(builtins, 'input', lambda _: USER):
-        assert menu.add_user() == True
+        assert menu.add_user() is True
 
 def test_add_user_already_exists():
+    """
+    Returns false when user already exists in the list
+    """
     with mock.patch.object(builtins, 'input', lambda _: USER):
-        assert menu.add_user() == False
+        assert menu.add_user() is False
 
 ########### TEMPORARY FOR SORT_USERS #############
 
 def test_add_user1():
+    """
+    Adding a user to the list for sorting users function
+    """
     with mock.patch.object(builtins, 'input', lambda _: 'auser'):
-        assert menu.add_user() == True
+        assert menu.add_user() is True
 
 def test_add_user2():
+    """
+    Adding a user to the list for sorting users function
+    """
     with mock.patch.object(builtins, 'input', lambda _: 'cuser'):
-        assert menu.add_user() == True
+        assert menu.add_user() is True
 
 def test_add_user3():
+    """
+    Adding a user to the list for sorting users function
+    """
     with mock.patch.object(builtins, 'input', lambda _: 'beuser'):
-        assert menu.add_user() == True
+        assert menu.add_user() is True
 
 def test_add_user4():
+    """
+    Adding a user to the list for sorting users function
+    """
     with mock.patch.object(builtins, 'input', lambda _: 'bauser'):
-        assert menu.add_user() == True
+        assert menu.add_user() is True
 
 ##################################################
 
@@ -36,13 +54,13 @@ def test_delete_user():
     """ Check if user is successfully removed from list
     """
     with mock.patch.object(builtins, 'input', lambda _: USER):
-        assert menu.delete_user() == True
+        assert menu.delete_user() is True
 
 def test_delete_user_not_exist():
     """ Check if del_user returns false when user does not exist
     """
     with mock.patch.object(builtins, 'input', lambda _: USER):
-        assert menu.delete_user() == False
+        assert menu.delete_user() is False
 
 
 def test_sort_users():
@@ -57,7 +75,7 @@ def test_del_users():
     """
     with mock.patch.object(builtins, 'input', lambda _: 'Y'):
         menu.del_all()
-        assert menu.users == []
+        assert menu.users is []
 
 def test_main_menu():
     """ Test main menu functionality
@@ -81,6 +99,6 @@ def test_main_menu():
     # with mock.patch.object(builtins, 'input', lambda _: '9'):
     #     assert menu.main_menu() == menu.read_list()
     with mock.patch.object(builtins, 'input', lambda: '10'):
-        assert menu.main_menu() == False
+        assert menu.main_menu() is False
     with mock.patch.object(builtins, 'input', lambda: 'abc'):
-        assert menu.main_menu() == False
+        assert menu.main_menu() is False

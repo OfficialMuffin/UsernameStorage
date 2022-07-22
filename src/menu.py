@@ -29,8 +29,8 @@ def list_users():
         print("Number of users: " + len_users + "\n")
 
 def add_user():
-    """Adds a user to the list of users. 
-    Returns true if user is added sucessfully. Returns false if user already exists
+    """Adds a user to the list of users.
+        Returns true if user is added sucessfully. Returns false if user already exists
     """
     new_user = input("Input User: ")
     # Check if the user already exists
@@ -62,7 +62,7 @@ def change_user():
     change = str(input("Please enter a specific user to change (case-sensitive): "))
     select = str(input(f"You are changing user '{change}', is this the correct user? (Y/n): "))
     if select == "Y":
-        change_name = str(input("Now enter the new name you would like to replace '{change}' with: "))
+        _ = str(input("Enter the name to replace '{change}' with: "))
         # Search for user, if user exists, enable user to change name according to index.
         # else, return to main menu
     elif select == "n":
