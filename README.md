@@ -10,3 +10,7 @@
 ![pytest](https://github.com/OfficialMuffin/UsernameStorage/actions/workflows/pytest.yml/badge.svg)
 
 Store usernames in a list
+
+## How to run the docker image
+1. `docker build -t <appname> .`
+2. `docker run -it <appname>`
