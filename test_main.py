@@ -75,7 +75,7 @@ def test_del_users():
     """
     with mock.patch.object(builtins, 'input', lambda _: 'Y'):
         menu.del_all()
-        assert menu.users is []
+        assert not menu.users
 
 def test_main_menu():
     """ Test main menu functionality
