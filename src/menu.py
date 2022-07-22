@@ -70,6 +70,7 @@ def change_user():
     else:
         print("Invalid Input! Please try again!")
         return False
+    return True
 
 def sort_users():
     """Sort the user list in alphabetical order
@@ -180,3 +181,4 @@ def main_menu():
     else:
         print("Invalid Request!")
         return False
+    return True
